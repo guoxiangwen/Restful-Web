@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
+
+
 var db = require('./config/database');
 
 
@@ -12,8 +14,12 @@ var db = require('./config/database');
 
 
 var routes = require('./routes/index');
-var student = require('./routes/api/students');
-var user = require('./routes/api/user');
+
+
+var curse = require('./routes/api/curse');
+var student = require('./routes/api/student');
+
+//var uptoken=require('./routes/uptoken');
 
 var app = express();
 
@@ -24,7 +30,7 @@ app.set('view engine', 'html');
 app.engine('.html', ejs.__express);
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+//libs.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -33,7 +39,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/student', student);
-app.use('/user', user);
+app.use('/curse', curse);
+//app.use('/uptoken', uptoken);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
