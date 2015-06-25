@@ -10,10 +10,9 @@ var StudentSchema = new Schema({
     age: {type: Number, default: 18},        //年纪
     birth: {type: Date, default: Date.now},//生日
     avatar: {type: String, default: "http://qlogo2.store.qq.com/qzone/297236521/297236521/100?1270731007"}//头像
-
 });
 
-var StudentModel= mongoose.model('Student', StudentSchema);
+var StudentModel = mongoose.model('Student', StudentSchema);
 /* var StudentEntity1 = new StudentModel({name: "张三", email: "zhangsan@.com", password: "zhangsan", "age": 23,"birth":new Date(),"avatar":"www.baidu.com"});
  var StudentEntity2 = new StudentModel({name: "李四", email: "lisi@.com", password: "lisi","age": 23,"birth":new Date(),"avatar":"www.baidu.com"});
  var StudentEntity3 = new StudentModel({name: "王五", email: "wangwu@.com", password: "wangwu","age": 23,"birth":new Date(),"avatar":"www.baidu.com"});

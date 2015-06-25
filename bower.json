@@ -1,0 +1,27 @@
+{
+  "name": "Restful-Web",
+  "version": "1.0.0",
+  "homepage": "https://github.com/guoxiangwen/Restful-Web",
+  "authors": [
+    "郭向文 <xiangwen.guo@changhong.com>"
+  ],
+  "description": "RestFul+Angular+MongoDB+Gulp内容管理系统",
+  "keywords": [
+    "angular",
+    "restful",
+    "mogoose",
+    "express",
+    "gulp"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "~1.4.1"
+  }
+}

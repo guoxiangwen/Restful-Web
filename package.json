@@ -12,9 +12,18 @@
     "express": "~4.12.2",
     "morgan": "~1.5.1",
     "serve-favicon": "~2.2.0",
-    "mongoose":"*",
-    "ejs":"*",
-    "express-mongoose":"*",
-    "qiniu":"~6.1.1"
+    "mongoose": "*",
+    "ejs": "*",
+    "express-mongoose": "*",
+    "qiniu": "~6.1.1",
+    "log4js": "*",
+    "express-session": "*"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-jshint": "^1.11.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0"
   }
 }

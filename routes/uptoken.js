@@ -4,19 +4,15 @@ var config = require('./../config.js');
 var router = express.Router();
 
 
-
-
-
 qiniu.conf.ACCESS_KEY = config.ACCESS_KEY;
 qiniu.conf.SECRET_KEY = config.SECRET_KEY;
 
 var uptoken = new qiniu.rs.PutPolicy(config.Bucket_Name);
 
 /* GET home page. */
-router.get('/view', function(req, res, next) {
+router.get('/view', function (req, res, next) {
     res.render('qiniu');
 });
-
 
 
 router.get('/uptoken', function (req, res, next) {

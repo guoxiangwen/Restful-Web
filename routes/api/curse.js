@@ -3,7 +3,7 @@ var router = express.Router();
 var CurseModel = require('./../../model/Curse');
 
 
-/* get Curse list. */
+/* get Curses list. */
 router.get('/', function (req, res) {
     CurseModel.find(function (err, doc) {
         if (err) {

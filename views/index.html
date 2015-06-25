@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="index">
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="app/libs/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="../public/libs/bootstrap/css/bootstrap.css"/>
-    <title>mongoose demo</title>
+    <link rel="stylesheet" href="app/assets/css/index.css"/>
+    <title>Express+Angular+Gulp Demo</title>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -17,49 +18,50 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" ui-sref="index-channel">Mongoose Demo</a>
+            <a class="navbar-brand" ui-sref="/">Express+Angular+Gulp</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a>渠道</a></li>
-                <li><a>开发者</a></li>
-                <li><a>设备管理</a></li>
-                <li><a>统计</a></li>
+                <li><a ui-sref="student">学生</a></li>
+                <li><a ui-sref="curse">课程</a></li>
                 <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-expanded="false">系统<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a >基本设置</a></li>
-                        <li><a >管家管理</a></li>
-                        <li><a >操作日志</a></li>
+                        <li><a>基本设置</a></li>
+                        <li><a>管家管理</a></li>
+                        <li><a>操作日志</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                       aria-expanded="false">{{userInfo.loginName}}<span class="caret"></span></a>
+                       aria-expanded="false">admin<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="#" ui-sref="changePass">修改密码</a></li>
-                        <li><a ui-sref="logout" >退出</a></li>
+                        <li><a ui-sref="logout">退出</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
-                </div>
-                <div class="panel-body">
-                    Panel content
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div ui-view></div>
 </body>
+
+
+<!--angular resources-->
+<script src="app/libs/angular/angular.min.js"></script>
+<script src="app/libs/angular/angular-ui-router.min.js"></script>
+<script src="app/libs/angular/ui-bootstrap.js"></script>
+<script src="app/libs/angular/ui-bootstrap-tpls.js"></script>
+
+<!--my js-->
+<script src="app/app.js"></script>
+<script src="app/module/index/index.services.js"></script>
+<script src="app/module/index/index.controller.js"></script>
+<!--student-->
+<script src="app/module/student/student.app.js"></script>
+<script src="app/module/student/student.services.js"></script>
+<script src="app/module/student/student.controller.js"></script>
 </html>

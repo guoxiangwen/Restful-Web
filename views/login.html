@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="login">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1 user-scalable=no"/>
+    <title>登录</title>
+    <link rel="stylesheet" type="text/css" href="/app/libs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/app/assets/css/login.css"/>
+    <!--[if lt IE 11]>
+    <script>
+
+        alert("你使用的浏览器版本太低，请下载最新版本");
+        window.location.href = "http://www.baidu.com";
+
+    </script> <![endif]-->
+</head>
+<body>
+<div class="container" ng-controller="LoginController">
+    <form class="form-signin" name="myForm" ng-submit="login()">
+        <h2 class="form-signin-heading">RestFul</h2>
+        <label for="username" class="sr-only">登录名</label>
+        <input type="text" id="username" class="form-control" name="username" ng-model="vm.name"
+               placeholder="管家账号" required autofocus>
+
+
+        <label for="password" class="sr-only">密码</label>
+        <input type="password" id="password" class="form-control" name="password" ng-model="vm.pwd"
+               placeholder="密码" required>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+    </form>
+</div>
+
+
+<!--<script src="/app/libs/jquery/jquery.min.js"></script>-->
+<script src="/app/libs/angular/angular.min.js"></script>
+<!--线上环境-->
+<script src="/app/build/login.min.js"></script>
+<!--开发环境-->
+<!--<script src="/app/module/login/login.controller.js"></script>
+<script src="/app/module/login/login.services.js"></script>
+<script src="/app/module/login/login.app.js"></script>-->
+</body>
+</html>
+
