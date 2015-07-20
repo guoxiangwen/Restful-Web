@@ -17,7 +17,10 @@ var app = express();
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 600000
+    }
 }));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +28,7 @@ app.set('view engine', 'html');
 app.engine('.html', ejs.__express);
 
 // uncomment after placing your favicon in /public
+app.use(favicon(__dirname + '/public/imgs/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -36,6 +40,13 @@ var apiUrl = "/api/v1";
 /**
  * ===============================@description:router路由路径的设定====================================
  */
+//路由权限控制
+/*app.all('/api/v1/!**', function (req, res, next) {
+    if (!req.session.user) {
+        return res.status(401).json({msg: "对不起,你没有登录"});
+    }
+    next();
+});*/
 //view router
 var login = require('./routes/login');
 var routes = require('./routes/index');

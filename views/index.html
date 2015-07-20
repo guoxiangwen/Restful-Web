@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="app/assets/css/index.css"/>
     <title>Express+Angular+Gulp Demo</title>
 </head>
-<body>
-<nav class="navbar navbar-default">
+<body ng-controller="IndexController">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" ui-sref="/">Express+Angular+Gulp</a>
+            <!--            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                                aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>-->
+            <a class="navbar-brand" ui-sref="/"></a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <!--<div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a ui-sref="student">学生</a></li>
                 <li><a ui-sref="curse">课程</a></li>
@@ -43,12 +43,16 @@
                     </ul>
                 </li>
             </ul>
-        </div>
+        </div>-->
     </div>
 </nav>
-<div ui-view></div>
+<div class="main">
+    <div ui-view></div>
+</div>
 </body>
 
+<script src="app/libs/jquery/jquery.min.js"></script>
+<script src="app/libs/bootstrap/js/bootstrap.min.js"></script>
 
 <!--angular resources-->
 <script src="app/libs/angular/angular.min.js"></script>
@@ -64,4 +68,8 @@
 <script src="app/module/student/student.app.js"></script>
 <script src="app/module/student/student.services.js"></script>
 <script src="app/module/student/student.controller.js"></script>
+<!--curse-->
+<script src="app/module/curse/curse.app.js"></script>
+<script src="app/module/curse/curse.service.js"></script>
+<script src="app/module/curse/curse.controller.js"></script>
 </html>

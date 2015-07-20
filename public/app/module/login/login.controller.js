@@ -1,7 +1,7 @@
 /**
  * loginController
  */
-app.controller('LoginController',
+angular.module('login').controller('LoginController',
     ['$scope', 'login', '$window', function ($scope, login, $window) {
         var vm = $scope.vm = {};
         $scope.login = function () {

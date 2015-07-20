@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="btn-group form-group" role="group" aria-label="...">
+                <button type="button" ng-click="getAuthList()" ng-class="{active:isAuthed}" class="btn btn-default">
+                    已授权
+                </button>
+                <button type="button" ng-click="getUnauthList()" ng-class="{active:!isAuthed}" class="btn btn-default">
+                    未授权
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon glyphicon glyphicon-search" style="top: 0"></div>
+                    <input class="form-control" type="text" ng-model="key" placeholder="查询条件:请输入开发者或者电子邮箱"
+                            >
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-success" id="search_btn" ng-click="getSearchList(1,10)">搜索</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead class="text-center">
+                    <tr>
+                        <th>id</th>
+                        <th>姓名</th>
+                        <th>生日</th>
+                        <th>年纪</th>
+                        <th>头像</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="student in vm.students " class="text-center">
+                        <td>{{student._id}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.birth}}</td>
+                        <td>{{student.age}}</td>
+                        <td>{{student.avatar}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<!--    <div class="row">
+        <div class="col-md-12">
+            <div class="page">
+                &lt;!&ndash;<button class="pull-left deleteBtn" data-toggle="modal" data-target="#deleteVersion">删除选中</button>&ndash;&gt;
+                <div class="pull-right">
+                    <pagination boundary-links="true" total-items="totalItems" ng-model="currentPage"
+                                class="pagination-md"
+                                ng-change="pageChanged()" max-size="maxSize" rotate="false"
+                                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;"
+                                last-text="&raquo;">
+                    </pagination>
+                    <span class="totalPage">共&nbsp;&nbsp;{{totalPages}}&nbsp;&nbsp;页，&nbsp;&nbsp;{{totalItems}}&nbsp;&nbsp;条</span>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>

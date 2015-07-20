@@ -1,5 +1,34 @@
 body {
     font-family: '微软雅黑';
+    padding-top: 120px;
+}
+.main{
+
+}
+.panel-body{
+    /*height: 120px;*/
+    line-height: 85px;
+}
+.method-ul{
+    line-height: 40px;
+
+    /*    position: fixed;
+        left: 4px;
+        top: 100px;*/
+}
+.method-ul li{
+    list-style-type: none;
+}
+th,tr,td{
+    text-align: center;
+}
+.navbar-header a{
+    display: block;
+    height: 56px;
+    width: 135px;
+    overflow: hidden;
+    text-indent: -3000px;
+    background: url("/imgs/logo-ng.png") 0 8px no-repeat;
 }
 
 

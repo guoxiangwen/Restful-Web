@@ -3,11 +3,23 @@
  */
 angular.module('student')
 
-    .factory("student", ["$http", function ($http) {
+    .factory("StudentService", ["$http", function ($http) {
         return {
             //list
-            list:function(){
+            list: function () {
                 return $http.get('/api/v1/student');
+            },
+            //add
+            add: function (student) {
+                return $http.post('/api/v1/student', student);
+            },
+            //put
+            update: function (_id, student) {
+                return $http.put('/api/v1/student', {_id: _id, student: student})
+            },
+            //delete
+            remove: function (_id) {
+                return $http.delete('/api/v1/student/' + _id);
             }
         }
     }]);

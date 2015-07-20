@@ -5,23 +5,47 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 // Define Student schema
 var StudentSchema = new Schema({
-    name: {type: String, default: ''},               //名字
-    password: {type: String, default: ''},           //密码
-    age: {type: Number, default: 18},        //年纪
-    birth: {type: Date, default: Date.now},//生日
-    avatar: {type: String, default: "http://qlogo2.store.qq.com/qzone/297236521/297236521/100?1270731007"}//头像
+    name: {type: String, default: 'xxx'},           //名字
+    password: {type: String, default: 'password'},  //密码
+    age: {type: Number, default: 18},               //年纪
+    birth: {type: Date, default: Date.now},         //生日
+    avatar: {
+        type: String,                               //头像
+        default: 'http://qlogo1.store.qq.com/qzone/499753816/499753816/30'
+    },
+    lessons: [
+        //选课记录
+    ]
 });
 
-var StudentModel = mongoose.model('Student', StudentSchema);
-/* var StudentEntity1 = new StudentModel({name: "张三", email: "zhangsan@.com", password: "zhangsan", "age": 23,"birth":new Date(),"avatar":"www.baidu.com"});
- var StudentEntity2 = new StudentModel({name: "李四", email: "lisi@.com", password: "lisi","age": 23,"birth":new Date(),"avatar":"www.baidu.com"});
- var StudentEntity3 = new StudentModel({name: "王五", email: "wangwu@.com", password: "wangwu","age": 23,"birth":new Date(),"avatar":"www.baidu.com"});
- StudentEntity1.save();
- StudentEntity2.save();
- StudentEntity3.save();*/
+/*var StudentModel = mongoose.model('Student', StudentSchema);
+var StudentEntity1 = new StudentModel({
+    name: "张三",
+    email: "zhangsan@.com",
+    password: "zhangsan",
+    "age": 23,
+    "birth": new Date()
+});
+var StudentEntity2 = new StudentModel({
+    name: "李四",
+    email: "lisi@.com",
+    password: "lisi",
+    "age": 23,
+    "birth": new Date()
+});
+var StudentEntity3 = new StudentModel({
+    name: "王五",
+    email: "wangwu@.com",
+    password: "wangwu",
+    "age": 23,
+    "birth": new Date()
+});
+StudentEntity1.save();
+StudentEntity2.save();
+StudentEntity3.save();*/
 
 /*查询所有Student*/
-/*exports.findAll = function (cb) {
+/*exports.findAll = function (cb) {od
  StudentModel.find(function (err, docs) {
  cb(err, docs);
  });

@@ -3,10 +3,12 @@
  *@author gxw
  *@version v1.0
  */
+'use strict';
 var app = angular.module('index', [
     'ui.router',
     'ui.bootstrap',
-    'student'
+    'student',
+    'curse'
 ]);
 /**
  * 由于整个应用都会和路由打交道，所以这里把$state和$stateParams这两个对象放到$rootScope上，方便其它地方引用和注入。
@@ -57,7 +59,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         /*====================================课程===================================*/
         .state('curse', {
             url: '/curse',
-            templateUrl: 'app/views/template/student/curse.html',
+            templateUrl: 'app/views/template/curse/curse.html',
             controller: 'CurseController'
         })
 

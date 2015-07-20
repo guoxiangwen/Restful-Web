@@ -18,7 +18,7 @@ router.post('/', function (req, res) {
         if (err) {
             res.send(err);
         }
-        res.json({msg: "curse created"})
+        res.json(doc);
     })
 });
 /*delete Curse*/

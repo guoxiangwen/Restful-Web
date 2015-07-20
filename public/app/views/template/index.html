@@ -3,32 +3,178 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
+                    <h3 class="panel-title text-center">学生</h3>
                 </div>
-                <div class="panel-body">
-                    Panel content
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
-                </div>
-                <div class="panel-body">
-                    Panel content
+                <div class="panel-body text-center">
+                    <pre class="text-center">
+name:名字
+password:密码
+age: 年纪
+birth:生日
+avatar: 头像
+                    </pre>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
+                    <h3 class="panel-title text-center">课程</h3>
                 </div>
-                <div class="panel-body">
-                    Panel content
+                <div class="panel-body text-center">
+                    <pre>
+name: type:String,//课程名字
+time: type: Number//课程时长(小时)
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">学生-课程(多对多)</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <span class="glyphicon glyphicon-resize-horizontal" aria-hidden="true"></span>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row" ng-show="true">
+        <h2 class="text-center">学生</h2>
+
+        <div class="col-md-2">
+            <ul class="method-ul">
+                <li><a class="btn btn-success btn-sm">GET</a></li>
+                <li><a data-target=".bs-example-modal-sm" data-toggle="modal" class="btn btn-warning btn-sm">POST</a>
+                </li>
+                <li><a class="btn btn-primary btn-sm" ng-click="studentFn.put()">PUT</a></li>
+                <li><a class="btn btn-danger btn-sm" ng-click="studentFn.remove()">DELETE</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <table id="stu_tb" class="table table-bordered table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>选中</th>
+                    <th>序号</th>
+                    <th>头像</th>
+                    <th>姓名</th>
+                    <th>年纪</th>
+                    <th>生日</th>
+                    <th>密码</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="student in stu_vm.students">
+                    <td><input type="checkbox" value="{{student._id}}"/></td>
+                    <td>{{$index+1}}</td>
+                    <td><img ng-src="{{student.avatar}}" alt="{{student.name}}"/></td>
+                    <td>{{student.name}}</td>
+                    <td>{{student.age}}</td>
+                    <td>{{student.birth}}</td>
+                    <td>{{student.password}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row" ng-show="true">
+        <h2 class="text-center">课程</h2>
+
+        <div class="col-md-2">
+            <ul class="method-ul">
+                <li><a class="btn btn-success btn-sm">GET</a></li>
+                <li><a class="btn btn-warning btn-sm">POST</a></li>
+                <li><a class="btn btn-primary btn-sm">PUT</a></li>
+                <li><a class="btn btn-danger btn-sm">DELETE</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>课程名</th>
+                    <th>学时(小时)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="curse in cur_vm.curses">
+                    <td>{{curse.name}}</td>
+                    <td>{{curse.time}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+<!--modal student add-->
+<!--学生(添加)-->
+<div class="modal fadeOutLeft bs-example-modal-sm" id="addStu" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel2"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span
+                        aria-hidden="true">&times;</span><span
+                        class="sr-only">关闭</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel2">添加学生</h4>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="studentFn.add()" class="form-horizontal" role="form"
+                      id="AddStuForm" name="AddStuForm" novalidate>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">名字</label>
+                            <input type="text" class="form-control" name="name" id="name"
+                                   placeholder="默认:王大锤"
+                                   ng-model="stu_vm.add_Modal.name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">年纪</label>
+                            <input type="text" class="form-control" name="age" id="age"
+                                   placeholder="默认:18"
+                                   ng-model="stu_vm.add_Modal.age" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birth">生日</label>
+                            <input type="text" class="form-control" name="birth"
+                                   id="birth"
+                                   placeholder="默认:当前日期"
+                                   ng-model="stu_vm.add_Modal.birth" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pwd">密码</label>
+                            <input type="text" class="form-control" name="pwd"
+                                   id="pwd"
+                                   placeholder="默认:password"
+                                   ng-model="stu_vm.add_Modal.password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="avatar">头像</label>
+                            <input type="text" class="form-control" name="avatar"
+                                   id="avatar"
+                                   placeholder="默认:http://qlogo1.store.qq.com/qzone/499753816/499753816/30"
+                                   ng-model="stu_vm.add_Modal.avatar">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+                        <button type="submit" class="btn btn-success"
+                                >保存
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+</script>

@@ -10,7 +10,7 @@ router.post('/', function (req, res) {
     console.info("用户名:" + req.body.name + "密码:" + req.body.pwd);
     if (req.body.name == "123" && req.body.pwd == "123") {
         req.session.user = req.body;
-        res.status(200).json({msg: 'ok'});
+        res.status(200).json({msg: '登录成功', user: req.body});
     }
     else {
         res.status(401).json(error.Unauthorized);
