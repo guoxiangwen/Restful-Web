@@ -5,8 +5,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CurseSchema = new Schema({
-    name: String,
-    time: {type: Number, default: 50}
+    name: String,                       //课程名字
+    time: {type: Number, default: 50},   //课程时长(小时)
+    students: []                         //选课的学生
 });
 var CurseModel = mongoose.model('Curse', CurseSchema);
 
